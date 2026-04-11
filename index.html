@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MangaNest</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav id="navbar">
+        <div class="nav-left">
+          <h2>MangaNest</h2>
+        </div>
+
+        <div class="nav-center">
+          <div class="search-wrapper">
+            <i class="fa fa-search" id="search-icon"></i>
+            <input id="searchInput" placeholder="Search manga..." />
+          </div>
+          <div id="results" class="search-results"></div>
+          <div id="settings"><p id="settings-icon">&#9776;</p></div>
+        </div>
+
+        <div class="nav-right">
+          <a href="login.html" id="signin">Sign In</a>
+          <a href="#" id="logout">Sign Out</a>
+        </div>
+      </nav>
+      <div id="menu" class="menu"></div>
+      <div id="header">
+        <button id="header-btn1">
+          <i class="fa fa-angle-left" style="font-size: 20px"></i>
+        </button>
+        <div id="header-info"></div>
+        <button id="header-btn2">
+          <i class="fa fa-angle-right" style="font-size: 20px"></i>
+        </button>
+      </div>
+
+      <div id="main">
+        <div id="popular"></div>
+        <div id="manga-container">
+          <div id="yaoi-header">
+            <h2>Yaoi</h2>
+            <a href="viewMore/viewMore.html?genre=yaoi">view more >>></a>
+          </div>
+          <div id="yaoi" class="d-flex overflow-auto"></div>
+
+          <div id="shoujo-header">
+            <h2>Shoujo</h2>
+            <a href="viewMore/viewMore.html?genre=shoujo">view more >>></a>
+          </div>
+          <div id="shoujo" class="d-flex overflow-auto"></div>
+
+          <div id="comedy-header">
+            <h2>Comdey</h2>
+            <a href="viewMore/viewMore.html?genre=comedy">view more >>></a>
+          </div>
+          <div id="comedy" class="d-flex overflow-auto"></div>
+        </div>
+      </div>
+      <div id="comment-section" style="margin: 0px 20px">
+        <div class="comment-box" id="comment-box">
+          <p id="user-img"></p>
+          <div class="content">
+            <h2>Comment as:</h2>
+            <input type="text" value="Annonymous" class="user" />
+            <div class="commentinput">
+              <input
+                type="text"
+                placeholder="Enter comment"
+                class="usercomment"
+                style="color: white"
+              />
+              <div class="buttons">
+                <button type="submit" disabled id="publish">Publish</button>
+                <div class="notify">
+                  <input type="checkbox" class="notifyinput" />
+                  <span>Notify me</span>
+                </div>
+              </div>
+            </div>
+            <p>
+              This site is protected by reCAPTCHA and the Google
+              <a href="">privacy policy</a> and
+              <a href="">Terms of Service</a> apply.
+            </p>
+          </div>
+        </div>
+        <div id="review"></div>
+      </div>
+      <footer>
+        <p>MangaNest @2026</p>
+        <a href="#navbar"><i class="fa fa-arrow-up" id="top"></i></a>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

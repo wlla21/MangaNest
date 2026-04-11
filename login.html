@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MangaNest</title>
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="login-box">
+        <div class="title"><span>Login</span></div>
+        <form id="loginForm">
+          <div class="row">
+            <i class="fa fa-user"></i>
+            <input
+              type="text"
+              id="email"
+              placeholder="Email or Phone"
+              required
+            />
+          </div>
+
+          <div class="row">
+            <i class="fa fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <div class="remember-forgot">
+            <label><input type="checkbox" />Remember me</label>
+            <a href="#">Forget Password?</a>
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+
+          <div class="login-register">
+            <p>Don't have an account <a href="signup.html">Register</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>

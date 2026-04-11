@@ -1,0 +1,283 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0c29;
+  color: white;
+}
+
+#wrapper {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  background: #0f0c29;
+  color: white;
+}
+
+/* NavBar  */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #0c0726;
+}
+
+.nav-left h2 {
+  margin: 0;
+}
+.nav-left a {
+  text-decoration: none;
+  color: white;
+}
+.nav-center {
+  position: relative;
+}
+#results a {
+  display: flex;
+  text-decoration: none;
+}
+.search-wrapper {
+  background: #1e1a3a;
+  padding: 8px 15px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper input {
+  background: none;
+  border: none;
+  color: white;
+  outline: none;
+  margin-left: 5px;
+}
+
+.search-results {
+  position: absolute;
+  top: 45px;
+  width: 300px;
+  background: #1e1a3a;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.search-results div {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-results div:hover {
+  background: #2c2755;
+}
+
+.search-results img {
+  width: 40px;
+  margin-right: 10px;
+}
+.nav-right a {
+  text-decoration: none;
+  color: white;
+  padding-right: 5px;
+}
+.nav-center #settings {
+  display: none;
+}
+#settings {
+  display: none;
+  display: flex;
+  flex-direction: column;
+}
+
+#menu {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  margin-right: 10px;
+  float: right;
+}
+#settings-icon {
+  margin-top: 5px;
+}
+/* body  */
+#detail {
+  display: flex;
+  align-items: center;
+  padding: 30px 20px;
+  gap: 20px;
+}
+
+#left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#left h1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+}
+#left img {
+  height: 200px;
+  width: 150px;
+}
+#left button {
+  background-color: #4b3b94;
+  width: 150px;
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#left button:hover {
+  background-color: #6c5ce7;
+}
+#right {
+  flex: 1;
+  min-width: 300px;
+}
+#summary h3 {
+  margin-left: 20px;
+}
+#summary p {
+  margin-left: 20px;
+  width: 85%;
+  text-align: justify;
+}
+#chapter {
+  margin-left: 20px;
+  width: 80%;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 20px;
+  height: 300px;
+  font-size: 16px;
+  overflow-x: auto;
+  padding: 10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#review {
+  margin: 0 20px;
+}
+#chapter::-webkit-scrollbar {
+  height: 10px;
+}
+
+#chapter::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 5px;
+  border: 2px solid #0f0c29;
+}
+
+#chapter::-webkit-scrollbar-track {
+  background: #1e1a3a;
+  border-radius: 5px;
+}
+.username {
+  font-weight: 300;
+  color: white;
+}
+.userdate {
+  color: #636e72;
+}
+.review-card {
+  border-top: 1px solid #dfe6e9;
+  margin: 20px 0;
+  padding: 15px 0;
+}
+
+.review-text {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.no-review {
+  font-style: italic;
+  color: #b2bec3;
+}
+/* footer  */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #0c0726;
+  margin-top: 20px;
+}
+#top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid #000;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  padding: 15px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 480px) {
+  #wrapper {
+    width: 100%;
+    padding: 0px;
+  }
+  #navbar h2 {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+  }
+  #searchInput {
+    display: none;
+  }
+  .nav-right {
+    display: none;
+  }
+  #settings {
+    display: block;
+  }
+  #menu {
+    display: none;
+  }
+  #detail {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: 18px;
+  }
+  #left {
+    width: 400px;
+  }
+  #left h1 {
+    width: 80%;
+  }
+  #summary h3 {
+    margin: 5px 15px;
+  }
+  #summary p {
+    font-size: 17px;
+    margin: 15px;
+    font-weight: lighter;
+    text-align: justify;
+  }
+  #chapter {
+    margin: 15px;
+    width: 80%;
+  }
+  #review {
+    margin: 15px;
+  }
+  #settings-icon {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,431 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0c29;
+  color: white;
+}
+
+#wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  background: #0f0c29;
+  color: white;
+}
+
+/* NavBar  */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #0c0726;
+}
+
+.nav-left h2 {
+  margin: 0;
+}
+
+.nav-center {
+  position: relative;
+}
+
+#results a {
+  display: flex;
+  text-decoration: none;
+}
+
+.search-wrapper {
+  background: #1e1a3a;
+  padding: 8px 15px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper input {
+  background: none;
+  border: none;
+  color: white;
+  outline: none;
+  margin-left: 5px;
+}
+
+.search-results {
+  position: absolute;
+  top: 45px;
+  width: 300px;
+  background: #1e1a3a;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.search-results div {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-results div:hover {
+  background: #2c2755;
+}
+.nav-right a {
+  text-decoration: none;
+  color: white;
+  padding-right: 5px;
+}
+.search-results img {
+  width: 40px;
+  margin-right: 10px;
+}
+.nav-center #settings {
+  display: none;
+}
+#settings {
+  display: none;
+}
+
+#menu {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  width: 100%;
+  float: right;
+  padding: 30px;
+  float: right;
+}
+#menu a {
+  text-decoration: none;
+  color: white;
+  padding: 20px 10px;
+}
+/* Header  */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, #0c0726, #86bbd8, #0f0c29);
+  color: white;
+}
+#header button {
+  border-radius: 50%;
+  height: 20%;
+  border: none;
+  background: rgba(0, 2, 2, 0.5);
+  padding: 20px;
+  color: white;
+}
+#header-info a {
+  text-decoration: none;
+  color: white;
+  width: 60%;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#header-info img {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.manga-box h2 {
+  width: 200px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.manga-box p {
+  margin: 5px 0;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Popular  */
+#main {
+  display: flex;
+  gap: 50px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+#popular {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.popularManga {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #000;
+  padding: 5px 0;
+  gap: 10px;
+}
+
+.popularManga img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.popularManga p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.popularManga h3 {
+  width: 20px;
+  margin: 0 5px 0 0;
+}
+
+/* Main  */
+#manga-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+#manga-container h2 {
+  margin: 0 0 10px 10px;
+}
+#yaoi-header,
+#shoujo-header,
+#comedy-header {
+  display: flex;
+  justify-content: space-between;
+}
+#yaoi,
+#shoujo,
+#comedy {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.yaoiManga,
+.shoujoManga,
+.comedyManga {
+  flex: 0 0 auto;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.yaoiManga img,
+.shoujoManga img,
+.comedyManga img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.yaoiManga p,
+.shoujoManga p,
+.comedyManga p {
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
+  height: 40px;
+  overflow: hidden;
+}
+
+#yaoi::-webkit-scrollbar,
+#shoujo::-webkit-scrollbar,
+#comedy::-webkit-scrollbar {
+  height: 10px;
+}
+
+#yaoi::-webkit-scrollbar-thumb,
+#shoujo::-webkit-scrollbar-thumb,
+#comedy::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 5px;
+  border: 2px solid #0f0c29;
+}
+
+#yaoi::-webkit-scrollbar-track,
+#shoujo::-webkit-scrollbar-track,
+#comedy::-webkit-scrollbar-track {
+  background: #1e1a3a;
+  border-radius: 5px;
+}
+
+#yaoi,
+#shoujo,
+#comedy {
+  scrollbar-width: thin;
+  scrollbar-color: gray #1e1a3a;
+}
+/* comment  */
+.review-card {
+  border-top: 1px solid #dfe6e9;
+  margin: 20px 0;
+  padding: 15px 0;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+}
+.username {
+  font-weight: 300;
+  color: white;
+  padding-right: 10px;
+}
+.userdate {
+  color: #636e72;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  padding-right: 10px;
+}
+.review-text {
+  font-size: 14px;
+  font-weight: 200;
+}
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #0c0726;
+  margin-top: 20px;
+}
+/* comment */
+#user-img {
+  background: rgb(58, 10, 10);
+  padding: auto;
+  padding: 15px 15px 0px 15px;
+  border: 1px solid #000;
+  height: 30px;
+  border-radius: 50%;
+}
+.comment-box {
+  width: 60%;
+  display: flex;
+}
+.comment-box i {
+  margin-top: 20px;
+}
+.content {
+  margin: 0 20px;
+}
+.user {
+  background-color: transparent;
+  color: #dfe6e9;
+  border: none;
+  outline: none;
+  margin: 0;
+  margin-left: 20px;
+  padding: 10px;
+}
+.commentinput > input {
+  border: none;
+  padding: 10px;
+  padding-left: 0;
+  background-color: transparent;
+  outline: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+  width: 100%;
+  height: 70px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+}
+.buttons button {
+  background-color: lightgray;
+  color: black;
+  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.content p {
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.5);
+}
+#top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid #000;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  padding: 15px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 480px) {
+  #wrapper {
+    position: relative;
+    width: 100%;
+    margin: 5px;
+    padding: 0px;
+  }
+  #navbar h2 {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+  }
+  #searchInput {
+    display: none;
+  }
+  .nav-center {
+    display: flex;
+  }
+  .nav-center #settings {
+    display: block;
+  }
+  .search-wrapper {
+    background-color: transparent;
+  }
+  .nav-right {
+    margin-left: 20px;
+    padding-left: 20px;
+    display: none;
+    align-items: center;
+  }
+  #settings {
+    display: block;
+  }
+  #menu {
+    display: none;
+  }
+  #main {
+    display: flex;
+    flex-direction: column;
+  }
+  #manga-container {
+    width: 100%;
+  }
+  .yaoiManga,
+  .shoujoManga,
+  .comedyManga {
+    width: 130px;
+  }
+  #manga-container img {
+    height: 140px;
+    width: 120px;
+  }
+  .manga-box {
+    display: none;
+  }
+}

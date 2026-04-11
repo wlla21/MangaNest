@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MangaNest</title>
+
+    <link rel="stylesheet" href="manga-detail.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav id="navbar">
+        <div class="nav-left">
+          <h2><a href="../index.html">MangaNest</a></h2>
+        </div>
+
+        <div class="nav-center">
+          <div class="search-wrapper">
+            <i class="fa fa-search" id="search-icon"></i>
+            <input id="searchInput" placeholder="Search manga..." />
+          </div>
+          <div id="results" class="search-results"></div>
+          <div id="settings"><p id="settings-icon">&#9776;</p></div>
+        </div>
+
+        <div class="nav-right">
+          <a href="login.html" id="signin">Sign In</a>
+          <a href="#" id="logout">Sign Out</a>
+        </div>
+      </nav>
+      <div id="menu"></div>
+
+      <div id="detail"></div>
+      <span id="summary"></span>
+      <div id="chapter"></div>
+      <div id="review"></div>
+      <footer>
+        <p>MangaNest @2026</p>
+        <a href="#navbar"><i class="fa fa-arrow-up" id="top"></i></a>
+      </footer>
+      <script src="manga-detail.js"></script>
+    </div>
+  </body>
+</html>
