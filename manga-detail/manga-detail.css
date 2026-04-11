@@ -74,6 +74,9 @@ body {
 .search-results div:hover {
   background: #2c2755;
 }
+.nav-right {
+  display: flex;
+}
 .nav-right a {
   text-decoration: none;
   color: white;
