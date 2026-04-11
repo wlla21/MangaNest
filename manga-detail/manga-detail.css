@@ -250,6 +250,7 @@ footer {
   }
   .nav-center {
     display: flex;
+    background-color: transparent;
   }
   .nav-center #settings {
     display: block;
