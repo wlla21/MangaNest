@@ -248,45 +248,7 @@ async function loadShoujo() {
     console.log("Shoujo error:", err);
   }
 }
-async function getRecentReviews() {
-  reviewContainer.innerHTML = "<h3>Recent Reviews</h3>";
 
-  try {
-    const res = await fetch(
-      "https://api.jikan.moe/v4/manga?order_by=start_date&sort=desc&limit=10",
-    );
-    const mangaData = await res.json();
-    const mangaList = mangaData.data;
-    for (const manga of mangaList) {
-      const reviewRes = await fetch(
-        `https://api.jikan.moe/v4/manga/${manga.mal_id}/reviews`,
-      );
-      const reviewData = await reviewRes.json();
-      const reviews = reviewData.data.slice(0, 1);
-
-      reviews.forEach((r) => {
-        const reviewDate = new Date(r.date).toLocaleDateString();
-        reviewContainer.innerHTML += `
-          <div class="review-card">
-            <div class="review-header">
-              <img src="${r.user.images?.jpg?.image_url || "https://picsum.photos/50"}" class="avatar">
-              <span class="username">${r.user.username}</span>
-              <span class="userdate">${reviewDate}</span>
-            </div>
-            <p class="review-text">
-              <strong>${manga.title}:</strong> ${r.review.substring(0, 200)}...
-            </p>
-          </div>
-        `;
-      });
-    }
-  } catch (error) {
-    console.log("Error fetching recent reviews:", error);
-    reviewContainer.innerHTML += "<p>Failed to load reviews.</p>";
-  }
-}
-
-getRecentReviews();
 async function init() {
   await loadHeaderManga();
   await loadPopular();
@@ -294,7 +256,8 @@ async function init() {
   setTimeout(loadYaoi, 500);
   setTimeout(loadComdey, 1000);
   setTimeout(loadShoujo, 1500);
-  setTimeout(getRecentReviews, 2000);
+  setTimeout(updateReview, 2000);
+  setTimeout(getRecentReviews, 2500);
 }
 
 init();
@@ -361,3 +324,64 @@ function updateUserImg() {
   userImg.textContent = userFirstLetter.toUpperCase();
 }
 updateUserImg();
+document.getElementById("publish").onclick = setReview;
+const user = document.getElementById("user");
+const userComment = document.getElementById("usercomment");
+let today = new Date();
+let date = today.toISOString().split("T")[0];
+function setReview() {
+  localStorage.setItem("reviewerName", user.value);
+  localStorage.setItem("date", date);
+  localStorage.setItem("reviewText", userComment.value);
+}
+function updateReview() {
+  reviewContainer.innerHTML += `
+           <div class="review-card">
+             <div class="review-header">
+              <p id="user-img">${userFirstLetter.toUpperCase()}</p>
+              <span class="username">${localStorage.getItem("reviewerName")}</span>
+              <span class="userdate">${localStorage.getItem("date")}</span>
+            </div>
+             <p class="review-text">
+               ${localStorage.getItem("reviewText")};
+            </p></div>
+        `;
+}
+updateReview();
+async function getRecentReviews() {
+  reviewContainer.innerHTML = "<h3>Recent Reviews</h3>";
+
+  try {
+    const res = await fetch(
+      "https://api.jikan.moe/v4/manga?order_by=start_date&sort=desc&limit=10",
+    );
+    const mangaData = await res.json();
+    const mangaList = mangaData.data;
+    for (const manga of mangaList) {
+      const reviewRes = await fetch(
+        `https://api.jikan.moe/v4/manga/${manga.mal_id}/reviews`,
+      );
+      const reviewData = await reviewRes.json();
+      const reviews = reviewData.data.slice(0, 1);
+
+      reviews.forEach((r) => {
+        const reviewDate = new Date(r.date).toLocaleDateString();
+        reviewContainer.innerHTML += `
+          <div class="review-card">
+            <div class="review-header">
+              <img src="${r.user.images?.jpg?.image_url || "https://picsum.photos/50"}" class="avatar">
+              <span class="username">${r.user.username}</span>
+              <span class="userdate">${reviewDate}</span>
+            </div>
+            <p class="review-text">
+              <strong>${manga.title}:</strong> ${r.review.substring(0, 200)}...
+            </p>
+          </div>
+        `;
+      });
+    }
+  } catch (error) {
+    console.log("Error fetching recent reviews:", error);
+    reviewContainer.innerHTML += "<p>Failed to load reviews.</p>";
+  }
+}
