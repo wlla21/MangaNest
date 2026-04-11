@@ -24,7 +24,7 @@ const genreList = [
   { name: "Shounen", id: 27 },
   { name: "Avant Grade", id: 5 },
 ];
-
+let titleName;
 const genreMap = {
   action: 1,
   adventure: 2,
@@ -59,18 +59,6 @@ const genreParam = decodeURIComponent(params.get("genre") || "")
   .toLowerCase()
   .trim();
 
-if (genreParam) {
-  document.getElementById("title").innerText = genreParam.toUpperCase();
-}
-
-if (genreParam && genreMap[genreParam]) {
-  selectedGenres = [genreMap[genreParam]];
-}
-
-if (genreParam) {
-  document.getElementById("title").innerText = genreParam.toUpperCase();
-}
-
 const genreContainer = document.getElementById("genreFilters");
 
 genreList.forEach((g) => {
@@ -83,27 +71,43 @@ genreList.forEach((g) => {
 });
 
 if (genreParam && genreMap[genreParam]) {
-  selectedGenres = [genreMap[genreParam]];
+  const genreId = genreMap[genreParam];
+
+  selectedGenres = [genreId];
 
   document.querySelectorAll("#genreFilters input").forEach((input) => {
-    if (parseInt(input.value) === genreMap[genreParam]) {
+    if (Number(input.value) === genreId) {
       input.checked = true;
     }
   });
 }
+
+if (genreParam) {
+  getTitle(genreParam);
+}
+
 getMangaByPage(currentPage);
 document.getElementById("applyFilter").addEventListener("click", () => {
   selectedGenres = [
     ...document.querySelectorAll("#genreFilters input:checked"),
-  ].map((el) => el.value);
+  ].map((el) => Number(el.value));
 
   selectedStatus = [...document.querySelectorAll(".status input:checked")].map(
     (el) => el.value,
   );
 
+  titleName = genreList
+    .filter((item) => selectedGenres.includes(item.id))
+    .map((item) => item.name);
+
+  getTitle(titleName.join(","));
   currentPage = 1;
   getMangaByPage(currentPage);
 });
+
+function getTitle(name) {
+  document.getElementById("title").innerText = name.toUpperCase();
+}
 
 async function getMangaByPage(page) {
   try {
