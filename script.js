@@ -334,11 +334,23 @@ function menuWed() {
       menu.style.display = "none";
     } else {
       menu.style.display = "block";
-      menu.innerHTML = `<a href="login.html" id="signin">Sign In</a>
-          <a href="#" id="logout">Sign Out</a>`;
+      menu.innerHTML = `<a href="login.html" id="signIn">Sign In</a>
+          <a href="#" id="logOut">Sign Out</a>`;
+    }
+    const signInWed = document.getElementById("signIn");
+    const signOutWed = document.getElementById("logOut");
+
+    signOutWed.onclick = () => {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("username");
+      window.location.reload();
+    };
+    if (isLoggedIn == "true") {
+      signInWed.style.display = "none";
+    } else {
+      signInWed.style.display = "block";
     }
   };
-  console.log(isLoggedIn);
 }
 menuWed();
 

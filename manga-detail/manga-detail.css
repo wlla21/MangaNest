@@ -85,6 +85,9 @@ body {
 .nav-center #settings {
   display: none;
 }
+.nav-right {
+  display: flex;
+}
 #settings {
   display: none;
   display: flex;
