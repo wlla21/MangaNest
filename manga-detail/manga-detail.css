@@ -6,6 +6,7 @@ body {
 }
 
 #wrapper {
+  position: relative;
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
@@ -23,20 +24,21 @@ body {
   background: #0c0726;
 }
 
-.nav-left h2 {
-  margin: 0;
-}
-.nav-left a {
+.nav-left h2 a {
   text-decoration: none;
   color: white;
+  margin: 0;
 }
+
 .nav-center {
   position: relative;
 }
+
 #results a {
   display: flex;
   text-decoration: none;
 }
+
 .search-wrapper {
   background: #1e1a3a;
   padding: 8px 15px;
@@ -72,37 +74,35 @@ body {
 .search-results div:hover {
   background: #2c2755;
 }
-
-.search-results img {
-  width: 40px;
-  margin-right: 10px;
-}
 .nav-right a {
   text-decoration: none;
   color: white;
   padding-right: 5px;
 }
+.search-results img {
+  width: 40px;
+  margin-right: 10px;
+}
 .nav-center #settings {
   display: none;
 }
-.nav-right {
-  display: flex;
-}
 #settings {
   display: none;
-  display: flex;
-  flex-direction: column;
 }
 
 #menu {
-  display: flex;
-  align-items: end;
-  flex-direction: column;
-  margin-right: 10px;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  width: 100%;
+  float: right;
+  padding: 30px;
   float: right;
 }
-#settings-icon {
-  margin-top: 5px;
+#menu a {
+  text-decoration: none;
+  color: white;
+  padding: 20px 10px;
 }
 /* body  */
 #detail {
@@ -232,7 +232,9 @@ footer {
 }
 @media screen and (max-width: 480px) {
   #wrapper {
+    position: relative;
     width: 100%;
+    margin: 5px;
     padding: 0px;
   }
   #navbar h2 {
@@ -243,14 +245,30 @@ footer {
   #searchInput {
     display: none;
   }
+  .nav-center {
+    display: flex;
+  }
+  .nav-center #settings {
+    display: block;
+  }
+  .search-wrapper {
+    background-color: transparent;
+  }
   .nav-right {
+    margin-left: 20px;
+    padding-left: 20px;
     display: none;
+    align-items: center;
   }
   #settings {
     display: block;
   }
   #menu {
     display: none;
+  }
+  #main {
+    display: flex;
+    flex-direction: column;
   }
   #detail {
     display: flex;
@@ -279,8 +297,5 @@ footer {
   }
   #review {
     margin: 15px;
-  }
-  #settings-icon {
-    margin-top: 10px;
   }
 }
