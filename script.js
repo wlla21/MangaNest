@@ -253,7 +253,6 @@ async function init() {
   await loadYaoi();
   await loadShoujo();
   await loadComdey();
-  await updateReview();
   await getRecentReviews();
 }
 
@@ -322,9 +321,11 @@ if (localStorage.length == 0) {
 const commentbox = document.getElementById("comment-box");
 const userName = localStorage.getItem("username");
 function updateUserImg() {
-  if (localStorage.getItem("username" != "null")) {
-    let userFirstLetter = userName.split("")[0];
+  if (userName) {
+    let userFirstLetter = userName.charAt(0);
     commentbox.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  } else {
+    commentbox.innerHTML = `<i class="fa fa-user"></i>`;
   }
 }
 updateUserImg();
@@ -353,12 +354,12 @@ function setReview() {
   let reviewText = JSON.parse(localStorage.getItem("reviewerText")) || [];
   reviewText.push(userComment.value);
   localStorage.setItem("reviewerText", JSON.stringify(reviewText));
-  user.value = "Annonymous";
+  user.value = "";
   userComment.value = "";
 }
 
 function updateReview() {
-  let userFirstLetter = userName.split("")[0];
+  let userFirstLetter = userName ? userName.charAt(0) : " ";
   let name = JSON.parse(localStorage.getItem("reviewerName"));
   let date = JSON.parse(localStorage.getItem("reviewerDate"));
   let text = JSON.parse(localStorage.getItem("reviewerText"));
@@ -370,7 +371,7 @@ function updateReview() {
     reviewContainer.innerHTML += `
            <div class="review-card">
              <div class="review-header">
-              <p id="reviewer-img"></p>
+              <p id="user-img">${userFirstLetter}</p>
               <span class="username">${name[i]}</span>
               <span class="userdate">${date[i]}</span>
             </div>
@@ -378,9 +379,11 @@ function updateReview() {
                ${text[i]};
             </p></div>
         `;
+    const userImg = document.getElementById("user-img");
   }
 }
 async function getRecentReviews() {
+  updateReview();
   try {
     const res = await fetch(
       "https://api.jikan.moe/v4/manga?order_by=start_date&sort=desc&limit=10",
