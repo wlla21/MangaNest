@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MangaNest</title>
 
-    <link rel="stylesheet" href="viewMore.css" />
+    <link rel="stylesheet" href="manga-detail.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -16,7 +16,7 @@
     <div id="wrapper">
       <nav id="navbar">
         <div class="nav-left">
-          <h2><a href="../index.html">MangaNest</a></h2>
+          <h2><a href="index.html">MangaNest</a></h2>
         </div>
 
         <div class="nav-center">
@@ -29,36 +29,22 @@
         </div>
 
         <div class="nav-right">
-          <a href="../login.html" id="signin">Sign In</a>
+          <a href="login.html" id="signin">Sign In</a>
           <a href="#" id="logout">Sign Out</a>
           <p id="reviewerImg" style="padding-left: 10px"></p>
         </div>
       </nav>
-      <div id="menu" class="menu"></div>
-      <!-- filter  -->
-      <div id="body">
-        <div id="filterBox">
-          <button id="applyFilter">OK, GO!</button>
+      <div id="menu"></div>
 
-          <div class="status">
-            <label><input type="checkbox" value="complete" /> Completed</label>
-            <label><input type="checkbox" value="publishing" /> Ongoing</label>
-          </div>
-
-          <div id="genreFilters"></div>
-        </div>
-        <div id="genre">
-          <h2 id="title"></h2>
-          <div id="genre-results"></div>
-          <div id="pagination"></div>
-        </div>
-      </div>
-      <!-- footer  -->
+      <div id="detail"></div>
+      <span id="summary"></span>
+      <div id="chapter"></div>
+      <div id="review"></div>
       <footer>
         <p>MangaNest @2026</p>
-        <a href="#navbar"><i class="fa fa-arrow-up" id="top"></i></a>
+        <a href="#navbar"><i class="fa fa-arrow-up" id="topBtn"></i></a>
       </footer>
-      <script src="viewMore.js"></script>
+      <script src="manga-detail.js"></script>
     </div>
   </body>
 </html>

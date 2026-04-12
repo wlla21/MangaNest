@@ -24,7 +24,7 @@ function updateHeader(data) {
   const manga = headerList[currentIndex];
   const headerInfo = document.getElementById("header-info");
   headerInfo.innerHTML = `
-          <a href="manga-detail/mangaDetail.html?id=${manga.mal_id}">
+          <a href="mangaDetail.html?id=${manga.mal_id}">
           <img id="img" src="${manga.images.jpg.image_url}"/>
           <div class="manga-box">
             <h2 id="title-manga">${manga.title}</h2>
@@ -137,7 +137,7 @@ document.addEventListener("click", (e) => {
 });
 
 function goToDetail(id) {
-  window.location.href = `manga-detail/mangaDetail.html?id=${id}`;
+  window.location.href = `mangaDetail.html?id=${id}`;
 }
 
 const mangaContainer = document.getElementById("manga-container");
@@ -360,12 +360,8 @@ function updateReview() {
   let name = JSON.parse(localStorage.getItem("reviewerName")) || [];
   let date = JSON.parse(localStorage.getItem("reviewerDate")) || [];
   let text = JSON.parse(localStorage.getItem("reviewerText")) || [];
-
-  for (
-    let i = 0;
-    i < JSON.parse(localStorage.getItem("reviewerName")).length;
-    i++
-  ) {
+  let arrayLength = JSON.parse(localStorage.getItem("reviewerName"));
+  for (let i = 0; i < arrayLength.length; i++) {
     reviewContainer.innerHTML += `
            <div class="review-card">
              <div class="review-header">

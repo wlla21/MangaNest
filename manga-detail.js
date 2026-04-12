@@ -25,7 +25,7 @@ if (id) {
           <p>Genres: ${manga.genres
             .map(
               (g) =>
-                `<a href="../viewMore/viewMore.html?genre=${g.name.toLowerCase()}">${g.name}</a>`,
+                `<a href="viewMore.html?genre=${g.name.toLowerCase()}">${g.name}</a>`,
             )
             .join(", ")}</p>
 

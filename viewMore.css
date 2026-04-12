@@ -77,6 +77,10 @@ body {
   width: 40px;
   margin-right: 10px;
 }
+.nav-right {
+  display: flex;
+  align-items: center;
+}
 .nav-right a {
   text-decoration: none;
   color: white;

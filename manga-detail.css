@@ -76,6 +76,7 @@ body {
 }
 .nav-right {
   display: flex;
+  align-items: center;
 }
 .nav-right a {
   text-decoration: none;

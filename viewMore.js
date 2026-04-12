@@ -148,7 +148,7 @@ function displayManga(mangaList) {
       "https://picsum.photos/200";
 
     container.innerHTML += `
-      <a href="../manga-detail/mangaDetail.html?id=${manga.mal_id}">
+      <a href="mangaDetail.html?id=${manga.mal_id}">
         <div class="card">
           <img src="${image}" loading="lazy">
           <p>${manga.title}</p>
@@ -293,7 +293,7 @@ function displayResults(list) {
     const div = document.createElement("div");
 
     div.innerHTML = `
-    <a href="manga-detail/mangaDetail.html?id=${manga.mal_id}">
+    <a href="mangaDetail.html?id=${manga.mal_id}">
       <img src="${manga.images.jpg.image_url}">
       <p>${manga.title}</p>
     </a>
