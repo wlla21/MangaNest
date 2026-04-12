@@ -258,14 +258,6 @@ async function init() {
 
 init();
 
-const icon = document.getElementById("search-icon");
-icon.onclick = () => {
-  if ((input.style.display = "none")) {
-    input.style.display = "block";
-  } else {
-  }
-};
-
 const logoutBtn = document.getElementById("logout");
 
 if (logoutBtn) {
@@ -276,10 +268,9 @@ if (logoutBtn) {
   });
 }
 
-const commentSection = document.getElementById("comment-box");
 const signin = document.getElementById("signin");
 if (isLoggedIn !== "true") {
-  commentSection.style.display = "none";
+  commentbox.style.display = "none";
 }
 if (isLoggedIn == "true") {
   signin.style.display = "none";
@@ -360,9 +351,10 @@ function setReview() {
 
 function updateReview() {
   let userFirstLetter = userName ? userName.charAt(0) : " ";
-  let name = JSON.parse(localStorage.getItem("reviewerName"));
-  let date = JSON.parse(localStorage.getItem("reviewerDate"));
-  let text = JSON.parse(localStorage.getItem("reviewerText"));
+  let name = JSON.parse(localStorage.getItem("reviewerName")) || [];
+  let date = JSON.parse(localStorage.getItem("reviewerDate")) || [];
+  let text = JSON.parse(localStorage.getItem("reviewerText")) || [];
+
   for (
     let i = 0;
     i < JSON.parse(localStorage.getItem("reviewerName")).length;
@@ -371,7 +363,7 @@ function updateReview() {
     reviewContainer.innerHTML += `
            <div class="review-card">
              <div class="review-header">
-              <p id="user-img">${userFirstLetter}</p>
+              <p id="reviewer-img">${userFirstLetter}</p>
               <span class="username">${name[i]}</span>
               <span class="userdate">${date[i]}</span>
             </div>
@@ -379,7 +371,6 @@ function updateReview() {
                ${text[i]};
             </p></div>
         `;
-    const userImg = document.getElementById("user-img");
   }
 }
 async function getRecentReviews() {
