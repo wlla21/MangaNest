@@ -153,14 +153,14 @@ body {
   color: white;
 }
 .card {
-  width: 200px;
+  width: 120px;
 }
 .card p {
-  width: 150px;
+  width: 110px;
 }
 .card img {
   height: 200px;
-  width: 150px;
+  width: 120px;
 }
 #pagination button {
   border: none;
@@ -228,7 +228,7 @@ footer {
     width: 100%;
   }
   #genre-results {
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
   .card {
     width: 120px;
@@ -236,10 +236,12 @@ footer {
   }
   .card p {
     width: 120px;
+    font-size: 13px;
+    height: 20px;
   }
   .card img {
     width: 120px;
-    height: 180px;
+    height: 150px;
   }
   #settings-icon {
     margin-top: 10px;

@@ -351,8 +351,7 @@ function setReview() {
   let reviewText = JSON.parse(localStorage.getItem("reviewerText")) || [];
   reviewText.push(userComment.value);
   localStorage.setItem("reviewerText", JSON.stringify(reviewText));
-  user.value = "";
-  userComment.value = "";
+  window.reload;
 }
 
 function updateReview() {
