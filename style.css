@@ -72,6 +72,10 @@ body {
 .search-results div:hover {
   background: #2c2755;
 }
+.nav-right {
+  display: flex;
+  align-items: center;
+}
 .nav-right a {
   text-decoration: none;
   color: white;
@@ -309,10 +313,11 @@ footer {
   margin-top: 20px;
 }
 /* comment */
-#user-img {
+#userImg {
   background: rgb(58, 10, 10);
   padding: auto;
-  padding: 15px 15px 0px 15px;
+  width: 30px;
+  padding: 15px 0px 0px 15px;
   border: 1px solid #000;
   height: 30px;
   border-radius: 50%;
@@ -372,6 +377,7 @@ footer {
   color: black;
   padding: 15px;
   border-radius: 50%;
+  display: none;
 }
 @media screen and (max-width: 480px) {
   #wrapper {

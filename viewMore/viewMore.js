@@ -293,18 +293,14 @@ function displayResults(list) {
     const div = document.createElement("div");
 
     div.innerHTML = `
-    <a href="mangaDetail.html?id=${manga.mal_id}">
+    <a href="manga-detail/mangaDetail.html?id=${manga.mal_id}">
       <img src="${manga.images.jpg.image_url}">
       <p>${manga.title}</p>
     </a>
     `;
-
-    div.onclick = () => goToDetail(manga.mal_id);
-
     results.appendChild(div);
   });
 }
-
 input.addEventListener("keydown", (e) => {
   const items = results.children;
 
@@ -382,3 +378,22 @@ function menuWed() {
   };
 }
 menuWed();
+if (localStorage.getItem("key") === null) {
+  logoutBtn.style.display = "none";
+}
+const topBtn = document.getElementById("top");
+window.addEventListener("scroll", () => {
+  if (scrollY > 200) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+});
+const commentbox = document.getElementById("comment-box");
+const userName = localStorage.getItem("username");
+function updateUserImg() {
+  if (localStorage.getItem("userName" !== null)) {
+    let userFirstLetter = userName.split("")[0];
+    commentbox.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  }
+}

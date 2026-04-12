@@ -95,10 +95,8 @@ function displayResults(list) {
     const div = document.createElement("div");
 
     div.innerHTML = `
-    <a href="mangaDetail.html?id=${manga.mal_id}">
       <img src="${manga.images.jpg.image_url}">
       <p>${manga.title}</p>
-    </a>
     `;
 
     div.onclick = () => goToDetail(manga.mal_id);
@@ -252,12 +250,11 @@ async function loadShoujo() {
 async function init() {
   await loadHeaderManga();
   await loadPopular();
-
-  setTimeout(loadYaoi, 500);
-  setTimeout(loadComdey, 1000);
-  setTimeout(loadShoujo, 1500);
-  setTimeout(updateReview, 2000);
-  setTimeout(getRecentReviews, 2500);
+  await loadYaoi();
+  await loadShoujo();
+  await loadComdey();
+  await updateReview();
+  await getRecentReviews();
 }
 
 init();
@@ -316,41 +313,74 @@ function menuWed() {
   };
 }
 menuWed();
+if (localStorage.length == 0) {
+  logoutBtn.style.display = "none";
+} else {
+  logoutBtn.style.display = "block";
+}
 
-const userImg = document.getElementById("user-img");
+const commentbox = document.getElementById("comment-box");
 const userName = localStorage.getItem("username");
-const userFirstLetter = userName.split("")[0];
 function updateUserImg() {
-  userImg.textContent = userFirstLetter.toUpperCase();
+  if (localStorage.getItem("username" != "null")) {
+    let userFirstLetter = userName.split("")[0];
+    commentbox.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  }
 }
 updateUserImg();
+
+const topBtn = document.getElementById("top");
+window.addEventListener("scroll", () => {
+  if (scrollY > 200) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+});
+
 document.getElementById("publish").onclick = setReview;
 const user = document.getElementById("user");
 const userComment = document.getElementById("usercomment");
 let today = new Date();
 let date = today.toISOString().split("T")[0];
 function setReview() {
-  localStorage.setItem("reviewerName", user.value);
-  localStorage.setItem("date", date);
-  localStorage.setItem("reviewText", userComment.value);
+  let reviewName = JSON.parse(localStorage.getItem("reviewerName")) || [];
+  reviewName.push(user.value);
+  localStorage.setItem("reviewerName", JSON.stringify(reviewName));
+  let reviewDate = JSON.parse(localStorage.getItem("reviewerDate")) || [];
+  reviewDate.push(date);
+  localStorage.setItem("reviewerDate", JSON.stringify(reviewDate));
+  let reviewText = JSON.parse(localStorage.getItem("reviewerText")) || [];
+  reviewText.push(userComment.value);
+  localStorage.setItem("reviewerText", JSON.stringify(reviewText));
+  user.value = "Annonymous";
+  userComment.value = "";
 }
+
 function updateReview() {
-  reviewContainer.innerHTML += `
+  let userFirstLetter = userName.split("")[0];
+  let name = JSON.parse(localStorage.getItem("reviewerName"));
+  let date = JSON.parse(localStorage.getItem("reviewerDate"));
+  let text = JSON.parse(localStorage.getItem("reviewerText"));
+  for (
+    let i = 0;
+    i < JSON.parse(localStorage.getItem("reviewerName")).length;
+    i++
+  ) {
+    reviewContainer.innerHTML += `
            <div class="review-card">
              <div class="review-header">
-              <p id="user-img">${userFirstLetter.toUpperCase()}</p>
-              <span class="username">${localStorage.getItem("reviewerName")}</span>
-              <span class="userdate">${localStorage.getItem("date")}</span>
+              <p id="reviewer-img"></p>
+              <span class="username">${name[i]}</span>
+              <span class="userdate">${date[i]}</span>
             </div>
              <p class="review-text">
-               ${localStorage.getItem("reviewText")};
+               ${text[i]};
             </p></div>
         `;
+  }
 }
-updateReview();
 async function getRecentReviews() {
-  reviewContainer.innerHTML = "<h3>Recent Reviews</h3>";
-
   try {
     const res = await fetch(
       "https://api.jikan.moe/v4/manga?order_by=start_date&sort=desc&limit=10",

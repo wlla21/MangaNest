@@ -261,3 +261,24 @@ function menuWed() {
   };
 }
 menuWed();
+
+if (localStorage.getItem("key") === null) {
+  logoutBtn.style.display = "none";
+}
+
+const userImg = document.getElementById("user-img");
+const userName = localStorage.getItem("username");
+function updateUserImg() {
+  if (localStorage.getItem("userName" !== null)) {
+    commentbox.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  }
+}
+
+const topBtn = document.getElementById("topBtn");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+});

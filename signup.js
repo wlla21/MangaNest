@@ -6,12 +6,11 @@ form.addEventListener("submit", function (e) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  if (email && password) {
+  if (name && email && password) {
     localStorage.setItem("username", name);
     localStorage.setItem("useremail", email);
     localStorage.setItem("password", password);
     window.location.href = "login.html";
-    alert(localStorage.getItem("useremail"));
   } else {
     alert("Please fill all fields");
   }
