@@ -32,6 +32,8 @@ body {
 }
 .nav-center {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 #results a {
   display: flex;
@@ -68,7 +70,6 @@ body {
   padding: 10px;
   cursor: pointer;
 }
-
 .search-results div:hover {
   background: #2c2755;
 }
@@ -198,6 +199,9 @@ footer {
   border-radius: 50%;
 }
 @media screen and (max-width: 480px) {
+  #search-icon {
+    background-color: transparent;
+  }
   #wrapper {
     width: 100%;
     padding: 0px;
@@ -209,6 +213,10 @@ footer {
   }
   #searchInput {
     display: none;
+  }
+  .search-wrapper {
+    background-color: transparent;
+    margin-bottom: 5px;
   }
   .nav-right {
     display: none;
