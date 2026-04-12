@@ -268,14 +268,15 @@ if (logoutBtn) {
   });
 }
 
+const commentBox = document.getElementById("commentBox");
 const signin = document.getElementById("signin");
-if (isLoggedIn !== "true") {
-  commentbox.style.display = "none";
+if (isLoggedIn != "true") {
+  commentBox.style.display = "none";
 }
 if (isLoggedIn == "true") {
   signin.style.display = "none";
 }
-
+console.log(isLoggedIn);
 const settingsIcon = document.getElementById("settings-icon");
 function menuWed() {
   const menu = document.getElementById("menu");
@@ -309,7 +310,7 @@ if (localStorage.length == 0) {
   logoutBtn.style.display = "block";
 }
 
-const commentbox = document.getElementById("comment-box");
+const reviewerImg = document.getElementById("reviewerImg");
 const userName = localStorage.getItem("username");
 function updateUserImg() {
   if (userName) {
@@ -330,17 +331,12 @@ window.addEventListener("scroll", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const publishBtn = document.getElementById("publish");
+const publishBtn = document.getElementById("publish");
+publishBtn.onclick = setReview;
 
-  if (publishBtn) {
-    publishBtn.onclick = setReview;
-  } else {
-    console.log("Publish button not found");
-  }
-});
 const user = document.getElementById("user");
 const userComment = document.getElementById("usercomment");
+
 let today = new Date();
 let date = today.toISOString().split("T")[0];
 function setReview() {
