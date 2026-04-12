@@ -330,7 +330,15 @@ window.addEventListener("scroll", () => {
   }
 });
 
-document.getElementById("publish").onclick = setReview;
+document.addEventListener("DOMContentLoaded", () => {
+  const publishBtn = document.getElementById("publish");
+
+  if (publishBtn) {
+    publishBtn.onclick = setReview;
+  } else {
+    console.log("Publish button not found");
+  }
+});
 const user = document.getElementById("user");
 const userComment = document.getElementById("usercomment");
 let today = new Date();
