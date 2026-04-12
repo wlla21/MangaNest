@@ -389,11 +389,14 @@ window.addEventListener("scroll", () => {
     topBtn.style.display = "none";
   }
 });
-const commentbox = document.getElementById("comment-box");
+const reviewerImg = document.getElementById("reviewerImg");
 const userName = localStorage.getItem("username");
 function updateUserImg() {
-  if (localStorage.getItem("userName" !== null)) {
-    let userFirstLetter = userName.split("")[0];
-    commentbox.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  if (userName) {
+    let userFirstLetter = userName.charAt(0);
+    reviewerImg.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  } else {
+    reviewerImg.innerHTML = `<i class="fa fa-user-circle"></i>`;
   }
 }
+updateUserImg();

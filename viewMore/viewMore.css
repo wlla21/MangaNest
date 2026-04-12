@@ -164,7 +164,7 @@ body {
   width: 40px;
   padding: 5px;
 }
-#user-img {
+#reviewerImg p {
   background: rgb(58, 10, 10);
   padding: auto;
   width: 30px;
@@ -172,7 +172,9 @@ body {
   border: 1px solid #000;
   height: 30px;
   border-radius: 50%;
-  display: none;
+}
+#reviewerImg i {
+  font-size: 25px;
 }
 /* footer  */
 footer {

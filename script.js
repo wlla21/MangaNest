@@ -298,8 +298,10 @@ function menuWed() {
     };
     if (isLoggedIn == "true") {
       signInWed.style.display = "none";
+      commentBox.style.display = "block";
     } else {
       signInWed.style.display = "block";
+      commentBox.style.display = "none";
     }
   };
 }
@@ -315,9 +317,9 @@ const userName = localStorage.getItem("username");
 function updateUserImg() {
   if (userName) {
     let userFirstLetter = userName.charAt(0);
-    commentbox.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+    reviewerImg.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
   } else {
-    commentbox.innerHTML = `<i class="fa fa-user"></i>`;
+    reviewerImg.innerHTML = `<i class="fa fa-user-circle"></i>`;
   }
 }
 updateUserImg();

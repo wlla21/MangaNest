@@ -266,13 +266,17 @@ if (localStorage.getItem("key") === null) {
   logoutBtn.style.display = "none";
 }
 
-const userImg = document.getElementById("user-img");
+const reviewerImg = document.getElementById("reviewerImg");
 const userName = localStorage.getItem("username");
 function updateUserImg() {
-  if (localStorage.getItem("userName" !== null)) {
-    commentbox.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  if (userName) {
+    let userFirstLetter = userName.charAt(0);
+    reviewerImg.innerHTML = `<p id="userImg">${userFirstLetter.toUpperCase()}</p>`;
+  } else {
+    reviewerImg.innerHTML = `<i class="fa fa-user-circle"></i>`;
   }
 }
+updateUserImg();
 
 const topBtn = document.getElementById("topBtn");
 window.addEventListener("scroll", () => {

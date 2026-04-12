@@ -313,7 +313,7 @@ footer {
   margin-top: 20px;
 }
 /* comment */
-#userImg {
+#reviewerImg p {
   background: rgb(58, 10, 10);
   padding: auto;
   width: 30px;
@@ -321,6 +321,9 @@ footer {
   border: 1px solid #000;
   height: 30px;
   border-radius: 50%;
+}
+#reviewerImg i {
+  font-size: 25px;
 }
 .comment-box {
   width: 60%;
