@@ -323,7 +323,6 @@ function updateUserImg() {
   }
 }
 updateUserImg();
-
 const topBtn = document.getElementById("top");
 window.addEventListener("scroll", () => {
   if (scrollY > 200) {
@@ -351,7 +350,7 @@ function setReview() {
   let reviewText = JSON.parse(localStorage.getItem("reviewerText")) || [];
   reviewText.push(userComment.value);
   localStorage.setItem("reviewerText", JSON.stringify(reviewText));
-  window.reload;
+  location.reload();
 }
 
 function updateReview() {

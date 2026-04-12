@@ -147,6 +147,7 @@ body {
 #genre-results {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   margin: 10px;
 }
 #genre-results a {
@@ -154,14 +155,14 @@ body {
   color: white;
 }
 .card {
-  width: 120px;
+  width: 150px;
 }
 .card p {
-  width: 110px;
+  width: 150px;
 }
 .card img {
   height: 200px;
-  width: 120px;
+  width: 150px;
 }
 #pagination button {
   border: none;
@@ -253,5 +254,9 @@ footer {
   }
   #settings-icon {
     margin-top: 10px;
+  }
+  #pagination button {
+    width: 30px;
+    font-size: 10px;
   }
 }
