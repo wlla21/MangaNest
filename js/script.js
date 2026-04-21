@@ -409,3 +409,6 @@ async function getRecentReviews() {
     reviewContainer.innerHTML += "<p>Failed to load reviews.</p>";
   }
 }
+const footer = document.getElementById("footer");
+const year = new Date().getFullYear();
+footer.innerHTML = `<p>MangaNest @${year}</p>`;

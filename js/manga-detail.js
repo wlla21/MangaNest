@@ -286,3 +286,6 @@ window.addEventListener("scroll", () => {
     topBtn.style.display = "none";
   }
 });
+const footer = document.getElementById("footer");
+const year = new Date().getFullYear();
+footer.innerHTML = `<p>MangaNest @${year}</p>`;

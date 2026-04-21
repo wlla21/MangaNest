@@ -173,22 +173,20 @@ function generatePaginationButtons() {
   }
 
   const prev = document.createElement("button");
-  prev.innerText = "<";
-  prev.style.padding = "5px 10px";
+  prev.innerHTML = "⟨";
   prev.disabled = currentPage === 1;
   prev.onclick = () => {
     currentPage--;
     getMangaByPage(currentPage);
   };
   container.appendChild(prev);
+
   for (let i = start; i <= end; i++) {
     const btn = document.createElement("button");
-    btn.classList.add = "paginationbtn";
     btn.innerText = i;
 
     if (i === currentPage) {
-      btn.style.background = "#4c5fd7";
-      btn.style.color = "#fff";
+      btn.classList.add("active");
     }
 
     btn.onclick = () => {
@@ -199,10 +197,9 @@ function generatePaginationButtons() {
     container.appendChild(btn);
   }
 
-  // Ellipsis (...)
   if (end < totalPages - 1) {
     const dots = document.createElement("span");
-    dots.innerText = " ... ";
+    dots.innerText = "...";
     container.appendChild(dots);
   }
 
@@ -219,8 +216,7 @@ function generatePaginationButtons() {
   }
 
   const next = document.createElement("button");
-  next.innerText = ">";
-  next.style.padding = "5px 10px";
+  next.innerHTML = "⟩";
   next.disabled = currentPage === totalPages;
   next.onclick = () => {
     currentPage++;
@@ -229,12 +225,11 @@ function generatePaginationButtons() {
   container.appendChild(next);
 
   const select = document.createElement("select");
-  select.style.margin = "0 10px";
-  select.style.padding = "5px";
+
   for (let i = 1; i <= totalPages; i++) {
     const option = document.createElement("option");
     option.value = i;
-    option.text = i;
+    option.text = `Page ${i}`;
 
     if (i === currentPage) option.selected = true;
 
@@ -248,7 +243,6 @@ function generatePaginationButtons() {
 
   container.appendChild(select);
 }
-
 getMangaByPage(currentPage);
 
 const input = document.getElementById("searchInput");
@@ -400,3 +394,6 @@ function updateUserImg() {
   }
 }
 updateUserImg();
+const footer = document.getElementById("footer");
+const year = new Date().getFullYear();
+footer.innerHTML = `<p>MangaNest @${year}</p>`;
