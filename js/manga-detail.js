@@ -15,7 +15,7 @@ if (id) {
       detailDiv.innerHTML = `
         <div id="left">
           <h1>${manga.title}</h1>
-          <img src="${manga.images.jpg.image_url}" alt="${manga.title}">
+          <canvas src="${manga.images.jpg.image_url}" alt="${manga.title}" id=""> </canvas>
           <button>Start Reading</button>
         </div>
         <div id="right">
@@ -61,14 +61,14 @@ if (id) {
         star.style.color = "gray";
 
         star.addEventListener("click", () => {
-          const isLoggedIn = localStorage.getItem("isLoggedIn"); // check your login
+          const isLoggedIn = localStorage.getItem("isLoggedIn");
 
           if (!isLoggedIn) {
             alert("You must login to rate!");
-            return; // stop if not logged in
+            return;
           }
 
-          rating = i; // proceed if logged in
+          rating = i;
           updateStars();
           ratingText.textContent = "Rating: " + rating;
 

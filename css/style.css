@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0c29;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to bottom, #030b16 10%, #4f6074 30%, #192d50 90%);
   color: white;
 }
 
@@ -11,7 +11,13 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   overflow-x: hidden;
-  background: #0f0c29;
+  background: linear-gradient(
+    form left to right,
+    #030b16 20%,
+    #4f6074 30%,
+    #192d50 40%,
+    #030b16 10%
+  );
   color: white;
 }
 
@@ -21,7 +27,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background: #0c0726;
 }
 
 .nav-left h2 {
@@ -112,7 +117,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(to bottom, #0c0726, #86bbd8, #0f0c29);
   color: white;
 }
 #header button {
@@ -209,6 +213,11 @@ body {
 #comedy-header {
   display: flex;
   justify-content: space-between;
+}
+#yaoi-header a,
+#shoujo-header a,
+#comedy-header a {
+  color: white;
 }
 #yaoi,
 #shoujo,
@@ -309,7 +318,6 @@ body {
 footer {
   text-align: center;
   padding: 15px;
-  background: #0c0726;
   margin-top: 20px;
 }
 /* comment */
